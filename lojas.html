@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CVConnect - Lojas Parceiras</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Inter', sans-serif;
+    }
+
+    body {
+      background-color: #f5f8fa;
+      color: #333;
+      line-height: 1.6;
+    }
+
+    header {
+      background-color: #004488;
+      color: white;
+      padding: 1.5rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    header h1 {
+      font-size: 1.8rem;
+    }
+
+    nav a {
+      color: white;
+      margin-left: 0,5rem;
+      text-decoration: none;
+      font-weight: 500;
+    }
+    nav a:hover{
+      font-weight: 900;
+    }
+
+    .hero {
+      text-align: center;
+      padding: 4rem 2rem;
+      background-color: #eaf1f8;
+    }
+
+    .hero h2 {
+      font-size: 2.5rem;
+      color: #004488;
+    }
+
+    .hero p {
+      margin-top: 1rem;
+      font-size: 1.1rem;
+    }
+
+    .section {
+      padding: 3rem 2rem;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    .cards {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+
+    .card {
+      flex: 1;
+      min-width: 250px;
+      background: white;
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+    }
+
+    .card i {
+      font-size: 2rem;
+      color: #004488;
+      margin-bottom: 1rem;
+    }
+
+    .cta {
+      text-align: center;
+      background-color: #004488;
+      color: white;
+      padding: 3rem 2rem;
+    }
+
+    .cta a {
+      display: inline-block;
+      margin-top: 1rem;
+      background: white;
+      color: #004488;
+      padding: 0.8rem 1.5rem;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: background 0.3s;
+    }
+
+    .cta a:hover {
+      background: #dce9f3;
+    }
+
+    footer {
+      background-color: #002244;
+      color: white;
+      padding: 2rem;
+      text-align: center;
+    }
+
+    footer p, footer a {
+      margin: 0.3rem 0;
+      color: #ccc;
+      font-size: 0.9rem;
+    }
+
+    @media (max-width: 768px) {
+      nav {
+        display: none;
+      }
+
+      .cards {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .loja {
+        margin: 1rem 0;
+        font-size: 1.2rem;
+      }
+    }
+
+    .lojas-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+
+    .loja {
+      background-color: #fff;
+      padding: 1.5rem;
+      border-radius: 10px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      cursor: pointer;
+      width: 250px;
+      transition: transform 0.3s ease;
+      text-align: center;
+      font-weight: bold;
+    }
+
+    .loja:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+    }
+
+    .info-loja {
+      display: none;
+      background-color: #fff;
+      padding: 2rem;
+      margin-top: 2rem;
+      border-radius: 10px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .info-loja h3 {
+      font-size: 1.5rem;
+      color: #004488;
+    }
+    .menu-toggle {
+  display: none;
+  font-size: 1.5rem;
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+}
+
+.menu {
+  display: flex;
+  gap: 2rem;
+}
+
+@media (max-width: 768px) {
+  .menu {
+    display: none;
+    flex-direction: column;
+    background-color: #004488;
+    position: absolute;
+    top: 70px;
+    left: 0;
+    right: 0;
+    padding: 1rem 2rem;
+    z-index: 1000;
+  }
+
+  .menu.active {
+    display: flex;
+  }
+
+  .menu-toggle {
+    display: block;
+  }
+}
+
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>CVConnect</h1>
+  
+    <button class="menu-toggle" aria-label="Abrir Menu">
+      <i class="fas fa-bars"></i>
+    </button>
+  
+    <nav class="menu">
+      <a href="index.html">Home</a>
+      <a href="lojas.html">Lojas</a>
+      <a href="rastreio.html">Rastrear</a>
+      <a href="contato.html">Contatar</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <h2>Lojas Parceiras</h2>
+    <p>Confira as lojas que fazem parte da nossa rede de entrega inter-ilhas.</p>
+  </section>
+
+  <section class="section">
+    <div class="lojas-container" id="listaLojas">
+      <!-- Lojas geradas por JS -->
+    </div>
+
+    <div class="info-loja" id="infoLoja">
+      <h3 id="nomeLoja"></h3>
+      <p><strong>Contacto:</strong> <span id="contactoLoja"></span></p>
+      <p><strong>Endereço:</strong> <span id="enderecoLoja"></span></p>
+    </div>
+  </section>
+
+  <footer id="contato">
+    <p>Achada Santo António - Praia, Cabo Verde</p>
+    <p>geral@cvconnect.cv | parcerias@cvconnect.cv | complain@cvconnect.cv</p>
+    <p>(+238) 9756066 | 5382251</p>
+    <p><a href="#">Termos e Condições</a> | <a href="#">Ajuda e Suporte</a> | <a href="#">FAQs</a> | <a href="#">Recrutamento</a></p>
+    <p>Siga-nos:</p>
+    <p>
+      <a href="#"><i class="fab fa-facebook"></i></a>
+      <a href="#"><i class="fab fa-instagram"></i></a>
+      <a href="#"><i class="fab fa-x-twitter"></i></a>
+      <a href="#"><i class="fab fa-linkedin"></i></a>
+    </p>
+  </footer>
+
+  <script>
+    const lojas = [
+      { nome: "Farmácia Central", contacto: "+238 999 9999", endereco: "Praia, Plateau" },
+      { nome: "TechZone", contacto: "+238 988 8888", endereco: "Mindelo, Rua de Lisboa" },
+      { nome: "Restaurante Sabor Crioulo", contacto: "+238 977 7777", endereco: "Santa Maria, Sal" },
+      { nome: "Loja Fantasma 1", contacto: "---", endereco: "---" },
+      { nome: "Loja Fantasma 2", contacto: "---", endereco: "---" }
+    ];
+
+    const listaLojas = document.getElementById("listaLojas");
+    const infoLoja = document.getElementById("infoLoja");
+    const nomeLoja = document.getElementById("nomeLoja");
+    const contactoLoja = document.getElementById("contactoLoja");
+    const enderecoLoja = document.getElementById("enderecoLoja");
+
+    lojas.forEach((loja) => {
+      const div = document.createElement("div");
+      div.className = "loja";
+      div.innerText = loja.nome;
+      div.onclick = () => {
+        nomeLoja.innerText = loja.nome;
+        contactoLoja.innerText = loja.contacto;
+        enderecoLoja.innerText = loja.endereco;
+        infoLoja.style.display = "block";
+        infoLoja.scrollIntoView({ behavior: 'smooth' });
+      };
+      listaLojas.appendChild(div);
+    });
+  </script>
+  <script>
+    const menuToggle = document.querySelector('.menu-toggle');
+    const menu = document.querySelector('.menu');
+  
+    menuToggle.addEventListener('click', () => {
+      menu.classList.toggle('active');
+    });
+  </script>
+  
+</body>
+</html>
