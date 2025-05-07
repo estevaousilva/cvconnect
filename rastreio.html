@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CVConnect - Ligando as Ilhas</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Inter', sans-serif;
+    }
+
+    body {
+      background-color: #f5f8fa;
+      color: #333;
+      line-height: 1.6;
+    }
+
+    header {
+      background-color: #004488;
+      color: white;
+      padding: 1.5rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    header h1 {
+      font-size: 1.8rem;
+    }
+
+    nav a {
+      color: white;
+      margin-left: 2rem;
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .hero {
+      text-align: center;
+      padding: 4rem 2rem;
+      background-color: #eaf1f8;
+    }
+
+    .hero h2 {
+      font-size: 2.5rem;
+      color: #004488;
+    }
+
+    .hero p {
+      margin-top: 1rem;
+      font-size: 1.1rem;
+    }
+
+    .section {
+      padding: 3rem 2rem;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    .cards {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+
+    .card {
+      flex: 1;
+      min-width: 250px;
+      background: white;
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+    }
+
+    .card i {
+      font-size: 2rem;
+      color: #004488;
+      margin-bottom: 1rem;
+    }
+
+    .cta {
+      text-align: center;
+      background-color: #004488;
+      color: white;
+      padding: 3rem 2rem;
+    }
+
+    .cta a {
+      display: inline-block;
+      margin-top: 1rem;
+      background: white;
+      color: #004488;
+      padding: 0.8rem 1.5rem;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: background 0.3s;
+    }
+
+    .cta a:hover {
+      background: #dce9f3;
+    }
+
+    footer {
+      background-color: #002244;
+      color: white;
+      padding: 2rem;
+      text-align: center;
+    }
+
+    footer p, footer a {
+      margin: 0.3rem 0;
+      color: #ccc;
+      font-size: 0.9rem;
+    }
+
+    .container {
+      max-width: 600px;
+      margin: 2rem auto;
+      padding: 1rem;
+      background: white;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+      border-radius: 8px;
+    }
+
+    .container form {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .container label {
+      margin-bottom: 0.5rem;
+      font-weight: 600;
+    }
+
+    .container input {
+      padding: 0.8rem;
+      margin-bottom: 1rem;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      font-size: 1rem;
+    }
+
+    .container button {
+      background-color: #004488;
+      color: white;
+      padding: 0.8rem;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 1rem;
+      transition: background 0.3s;
+    }
+
+    .container button:hover {
+      background-color: #003366;
+    }
+
+    .resultado {
+      background-color: #eaf1f8;
+      padding: 1rem;
+      border-radius: 8px;
+      margin-top: 1rem;
+      display: none;
+    }
+
+    @media (max-width: 768px) {
+      nav {
+        display: none;
+      }
+
+      .cards {
+        flex-direction: column;
+        align-items: center;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>CVConnect</h1>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="lojas.html">Lojas</a>
+      <a href="rastreio.html">Rastrear</a>
+      <a href="contato.html">Contatar</a>
+    </nav>
+  </header>
+
+  <div class="hero">
+    <h2>Rastrear Sua Encomenda</h2>
+    <p>Insira o código de rastreio abaixo para acompanhar a sua encomenda.</p>
+  </div>
+
+  <div class="container">
+    <form id="formRastreio">
+      <label for="codigo">Insira o código de rastreio:</label>
+      <input type="text" id="codigo" required>
+      <button type="submit">Verificar</button>
+    </form>
+    <div class="resultado" id="resultado"></div>
+  </div>
+
+  <footer id="contato">
+    <p>Achada Santo António - Praia, Cabo Verde</p>
+    <p>geral@cvconnect.cv | parcerias@cvconnect.cv | complain@cvconnect.cv</p>
+    <p>(+238) 9756066 | 5382251</p>
+    <p><a href="#">Termos e Condições</a> | <a href="#">Ajuda e Suporte</a> | <a href="#">FAQs</a> | <a href="#">Recrutamento</a></p>
+    <p>Siga-nos:</p>
+    <p>
+      <a href="#"><i class="fab fa-facebook"></i></a>
+      <a href="#"><i class="fab fa-instagram"></i></a>
+      <a href="#"><i class="fab fa-x-twitter"></i></a>
+      <a href="#"><i class="fab fa-linkedin"></i></a>
+    </p>
+  </footer>
+
+  <script>
+    const form = document.getElementById('formRastreio');
+    const resultado = document.getElementById('resultado');
+
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+      const codigo = document.getElementById('codigo').value.trim();
+
+      if (codigo === '') {
+        resultado.textContent = 'Por favor, insira um código válido.';
+        resultado.style.display = 'block';
+        return;
+      }
+
+      // Simulação de rastreio (pode ser integrado com base de dados futuramente)
+      resultado.innerHTML = `<strong>Código:</strong> ${codigo}<br>
+                             <strong>Status:</strong> Em trânsito<br>
+                             <strong>Última atualização:</strong> 06/05/2025 às 13:42<br>
+                             <strong>Localização:</strong> Centro de Distribuição - Praia`;
+      resultado.style.display = 'block';
+    });
+  </script>
+</body>
+</html>
